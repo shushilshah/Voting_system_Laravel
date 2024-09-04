@@ -46,9 +46,9 @@
 
 
 
-    <section class="body" style="width:100%; height: 400px; background-color:aqua;">
-        <h3 style="margin-left: 400px;">Welcome to the Online VotingSystem</br>
-            Your voting Partner</h3>
+    <section class="body"
+        style="width:100%; height: 600px; background-image: url('storage/images/vote.png'); background-size:cover; background-position:center;">
+        <h3 style="margin-left: 400px;">Welcome to the Online VotingSystem</h3>
     </section>
 
 
