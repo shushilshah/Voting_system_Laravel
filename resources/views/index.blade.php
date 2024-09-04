@@ -14,7 +14,14 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="#">Caste</a>
+        <h1>Caste Your Vote</h1>
+        <div class="container-image">
+            <img src="{{ asset('storage/images/flag-removebg-preview.png') }}" alt="Flag Image"
+                style="float: right; margin-left: 200px;">
+
+        </div>
+
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home </a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -39,7 +46,10 @@
 
 
 
-
+    <section class="body" style="width:100%; height: 400px; background-color:aqua;">
+        <h3 style="margin-left: 400px;">Welcome to the Online VotingSystem</br>
+            Your voting Partner</h3>
+    </section>
 
 
 
