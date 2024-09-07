@@ -168,6 +168,7 @@
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-custom">Sign Up</button>
+                        <p>Already an account {{ url('login') }} </p>
                     </div>
                 </form>
             </div>
