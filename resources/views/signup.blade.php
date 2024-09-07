@@ -75,7 +75,7 @@
 
             <div class="container form-container">
                 <h2 class="form-title">Sign Up</h2>
-                <form action="" method="POST">
+                <form action="{{ url('/singupRegister') }}" method="POST">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
