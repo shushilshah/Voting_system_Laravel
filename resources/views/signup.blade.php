@@ -20,39 +20,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            .form-container {
-                max-width: 600px;
-                margin: 50px auto;
-                padding: 20px;
-                background-color: #f8f9fa;
-                border-radius: 8px;
-                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .form-title {
-                text-align: center;
-                margin-bottom: 20px;
-                color: #343a40;
-                font-weight: bold;
-            }
-
-            .form-group label {
-                font-weight: bold;
-                color: #495057;
-            }
-
-            .btn-custom {
-                background-color: #007bff;
-                color: white;
-                border-radius: 50px;
-                padding: 10px 20px;
-            }
-
-            .btn-custom:hover {
-                background-color: #0056b3;
-            }
-        </style>
         <title>Enhanced Form</title>
     </head>
 
@@ -94,6 +61,7 @@
                     color: white;
                     border-radius: 50px;
                     padding: 10px 20px;
+                    margin-left: 200px;
                 }
 
                 .btn-custom:hover {
@@ -130,13 +98,8 @@
                                     placeholder="Last Name">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Email">
-                            </div>
-                        </div>
+
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone_number">Phone Number</label>
@@ -165,11 +128,24 @@
                                     placeholder="Date of Birth">
                             </div>
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-custom">Sign Up</button>
-                        <p>Already an account {{ url('login') }} </p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter new password">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password"
+                                    name="confirm_password" placeholder="Confirm password">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-custom">Sign Up</button>
+                                <p>Already have an account</p>
+                                <button class="btn btn-primary">Login</button>
+                            </div>
                 </form>
             </div>
 

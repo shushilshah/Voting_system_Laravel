@@ -35,7 +35,7 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Vote</a>
+                    <a class="nav-link" href="{{ url('/signup') }}">Vote</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
