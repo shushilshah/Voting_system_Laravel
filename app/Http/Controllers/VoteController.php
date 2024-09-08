@@ -20,27 +20,28 @@ class VoteController extends Controller
 
     public function signupRegister(Request $request)
     {
+        echo "<pre>";
+        print_r($request->all());
         $request->validate([
-            'voter_id' => 'required|exists:user_exists,voter_id',
-            'citizenship_number' => 'required|exists:user_exists,citizenship_number',
-            'first_name' => 'required|exists:user_exists,first_name',
-            'last_name' => 'required|exists:user_exists,last_name',
+            'voter_id' => 'required|exists:userExist,voter_id',
+            'citizenship_number' => 'required|exists:userExist,citizenship_number',
+            'first_name' => 'required|exists:userExist,first_name',
+            'last_name' => 'required|exists:userExist,last_name',
             'dob' => 'required',
             'password' => 'required|confirmed',
             'confirm_password' => 'required'
         ]);
 
         $user = new votingtable();
-        $user->first_name = $request->first_name;
-        $user->middle_name = $request->middle_name;
-        $user->last_name = $request->last_name;
-        // $user->email = $request->email;
-        $user->phone_number = $request->phone_number;
-        $user->citizenship_number = $request->citizenship_number;
-        $user->voter_id = $request->id;
-        $user->dob = $request = $request->dob;
-        $user->password = Hash::make($request->password);
-        $user->confirm_password = Hash::make($request->confirm_password);
+        $user->first_name = $request['first_name'];
+        $user->middle_name = $request['middle_name'];
+        $user->last_name = $request['last_name'];
+        $user->phone_number = $request['phone_number'];
+        $user->citizenship_number = $request['citizenship_number'];
+        $user->voter_id = $request['voter_id'];
+        $user->dob = $request = $request['dob'];
+        $user->password = Hash::make($request['password']);
+        $user->confirm_password = Hash::make($request['confirm_password']);
         $result = $user->save();
 
         if ($result) {

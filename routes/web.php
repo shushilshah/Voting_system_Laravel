@@ -9,4 +9,4 @@ Route::get('/', function () {
 });
 Route::get('/login', [VoteController::class, 'login']);
 Route::get('/signup', [VoteController::class, 'signup']);
-Route::post('/sigupRegister', [VoteController::class, 'signupRegister']);
+Route::post('/signupRegister', [VoteController::class, 'signupRegister']);

@@ -75,7 +75,7 @@
 
             <div class="container form-container">
                 <h2 class="form-title">Sign Up</h2>
-                <form action="{{ url('/singupRegister') }}" method="POST">
+                <form action="{{ url('/signupRegister') }}" method="POST">
                     @if (Session::has('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
@@ -86,12 +86,18 @@
                             {{ Session::get('fail') }}
                         </div>
                     @endif
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
                                 <input type="text" class="form-control" id="first_name" name="first_name"
                                     placeholder="First Name" required>
+                                <span class="danger">
+                                    @error('first_name')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -99,6 +105,11 @@
                                 <label for="middle_name">Middle Name</label>
                                 <input type="text" class="form-control" id="middle_name" name="middle_name"
                                     placeholder="Middle Name">
+                                <span class="danger">
+                                    @error('middle_name')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -106,6 +117,11 @@
                                 <label for="last_name">Last Name</label>
                                 <input type="text" class="form-control" id="last_name" name="last_name"
                                     placeholder="Last Name">
+                                <span class="danger">
+                                    @error('last_name')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
 
@@ -115,6 +131,11 @@
                                 <label for="phone_number">Phone Number</label>
                                 <input type="number" class="form-control" id="phone_number" name="phone_number"
                                     placeholder="Phone Number">
+                                <span class="danger">
+                                    @error('phone_number')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -122,6 +143,11 @@
                                 <label for="citizenship_number">Citizenship Number</label>
                                 <input type="number" class="form-control" id="citizenship_number"
                                     name="citizenship_number" placeholder="Citizenship Number">
+                                <span class="danger">
+                                    @error('citizenship_number')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -129,6 +155,11 @@
                                 <label for="voter_number">Voter ID</label>
                                 <input type="number" class="form-control" id="vote_id" name="voter_id"
                                     placeholder="Voter ID Number">
+                                <span class="danger">
+                                    @error('voter_id')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -136,6 +167,11 @@
                                 <label for="dob">Date of Birth</label>
                                 <input type="date" class="form-control" id="dob" name="dob"
                                     placeholder="Date of Birth">
+                                <span class="danger">
+                                    @error('dob')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -143,6 +179,11 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Enter new password">
+                                <span class="danger">
+                                    @error('password')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -150,9 +191,14 @@
                                 <label for="confirm_password">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirm_password"
                                     name="confirm_password" placeholder="Confirm password">
+                                <span class="danger">
+                                    @error('confirm_password')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-custom">Sign Up</button>
+                                <button type="submit" class="btn btn-success">Sign Up</button>
                                 <p>Already have an account</p>
                                 <button class="btn btn-primary">Login</button>
                             </div>
