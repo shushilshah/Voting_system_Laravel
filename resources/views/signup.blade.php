@@ -76,6 +76,16 @@
             <div class="container form-container">
                 <h2 class="form-title">Sign Up</h2>
                 <form action="{{ url('/singupRegister') }}" method="POST">
+                    @if (Session::has('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+                    @if (Session::has('fail'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('fail') }}
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
