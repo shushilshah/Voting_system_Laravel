@@ -20,35 +20,34 @@ class VoteController extends Controller
 
     public function signupRegister(Request $request)
     {
-        echo "<pre>";
-        print_r($request->all());
+        // Validate the form data
         $request->validate([
-            'voter_id' => 'required|exists:userExist,voter_id',
-            'citizenship_number' => 'required|exists:userExist,citizenship_number',
-            'first_name' => 'required|exists:userExist,first_name',
-            'last_name' => 'required|exists:userExist,last_name',
-            'dob' => 'required',
-            'password' => 'required|confirmed',
-            'confirm_password' => 'required'
+            'first_name' => 'required|string|max:255',
+            'middle_name' => 'nullable|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone_number' => 'required|numeric',
+            'citizenship_number' => 'required|numeric',
+            'voter_id' => 'nullable|numeric',
+            'dob' => 'required|date',
+            'password' => 'required|string|confirmed',
         ]);
 
+        // Create a new user
         $user = new votingtable();
-        $user->first_name = $request['first_name'];
-        $user->middle_name = $request['middle_name'];
-        $user->last_name = $request['last_name'];
-        $user->phone_number = $request['phone_number'];
-        $user->citizenship_number = $request['citizenship_number'];
-        $user->voter_id = $request['voter_id'];
-        $user->dob = $request = $request['dob'];
-        $user->password = Hash::make($request['password']);
-        $user->confirm_password = Hash::make($request['confirm_password']);
-        $result = $user->save();
+        $user->first_name = $request->first_name;
+        $user->middle_name = $request->middle_name;
+        $user->last_name = $request->last_name;
+        $user->phone_number = $request->phone_number;
+        $user->citizenship_number = $request->citizenship_number;
+        $user->voter_id = $request->voter_id;
+        $user->dob = $request->dob;
+        $user->password = Hash::make($request->password); // Hash the password
 
-        if ($result) {
-            return back()->with('success', 'Congratulations! you are successfully Registered');
-            return redirect('/login');
+        // Save the user
+        if ($user->save()) {
+            return redirect()->back()->with('success', 'Registration successful.');
         } else {
-            return back()->with('fail', 'Something went wrong');
+            return redirect()->back()->with('fail', 'Registration failed. Please try again.');
         }
     }
 }

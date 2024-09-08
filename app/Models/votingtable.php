@@ -8,5 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class votingtable extends Model
 {
     use HasFactory;
-    protected $table = "votingtable";
+    // use Notifiable;
+
+    protected $fillable = [
+        'first_name',
+        'middle_name',
+        'last_name',
+        'phone_number',
+        'citizenship_number',
+        'voter_id',
+        'dob',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
+    ];
 }

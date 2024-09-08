@@ -125,7 +125,6 @@
                             </div>
                         </div>
 
-
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone_number">Phone Number</label>
@@ -188,21 +187,24 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="confirm_password">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm_password"
-                                    name="confirm_password" placeholder="Confirm password">
+                                <label for="password_confirmation">Confirm Password</label>
+                                <input type="password" class="form-control" id="password_confirmation"
+                                    name="password_confirmation" placeholder="Confirm password">
                                 <span class="danger">
-                                    @error('confirm_password')
+                                    @error('password_confirmation')
                                         {{ $message }}
                                     @enderror
                                 </span>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success">Sign Up</button>
-                                <p>Already have an account</p>
-                                <button class="btn btn-primary">Login</button>
+                                <p>Already have an account?</p>
+                                <a href="{{ url('/login') }}" class="btn btn-primary">Login</a>
                             </div>
+                        </div>
+                    </div>
                 </form>
+
             </div>
 
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

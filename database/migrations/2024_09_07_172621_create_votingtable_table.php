@@ -18,10 +18,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('phone_number');
             $table->string('citizenship_number');
-            $table->string('voter_id');
+            $table->string('voter_id')->nullable();
             $table->date('dob');
             $table->string('password');
-            $table->string('confirm_password');
             $table->timestamps();
         });
     }
