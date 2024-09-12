@@ -8,33 +8,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    {{-- <link rel="stylesheet" href="/main/login.css"> --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <form action="{{ url('/login') }}" method="POST">
+
+    <form action="{{ url('/loginUser') }}" method="POST">
+        @if (Session::has('success'))
+            <div class="alert alert-success">{{ Session::get('success') }}</div>
+        @endif
+
+        @if (Session::has('fail'))
+            <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+        @endif
+
+        @csrf
+
+        <h1 style="margin-left:70px">Voter Login</h1>
         <div class="container">
-
             <div class="form-group">
-                <label for="voter_id">Voter ID</label>
-                <input type="number" name="voter_number" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="citizenship_number">Citizenship Number</label>
-                <input type="number" name="citizenship_number" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="voter_id">Voter ID</label>
-                <input type="number" name="voter_number" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="dob">Date of Birth</label>
-                <input type="date" name="dob" class="form-control">
+                <label for="">Voter ID</label>
+                <input type="number" name="voterNumber" class="form-control" value="{{ old('voterNumber') }}">
+                <span class="danger">
+                    @error('voterNumber')
+                        {{ $message }}
+                    @enderror
+                </span>
             </div>
 
+            <div class="form-group">
+                <label for="">Voter ID</label>
+                <input type="number" name="citizenship_number" class="form-control"
+                    value="{{ old('citizenship_number') }}">
+                <span class="danger">
+                    @error('citizenship_number')
+                        {{ $message }}
+                    @enderror
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="danger">
+                    @error('password')
+                        {{ $message }}
+                    @enderror
+                </span>
+            </div>
         </div>
+
+        <a><button class="btn btn-primary" type="submit">Login</button></a>
+        <button class="btn btn-success"><a href="{{ url('/signup') }}">Sign Up</a></button>
+
     </form>
+
 
 
 </body>

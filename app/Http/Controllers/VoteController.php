@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\votingtable;
+use App\Models\votetable;
 use Hash;
 use Session;
 
@@ -33,7 +33,7 @@ class VoteController extends Controller
         ]);
 
         // Create a new user
-        $user = new votingtable();
+        $user = new votetable();
         $user->first_name = $request->first_name;
         $user->middle_name = $request->middle_name;
         $user->last_name = $request->last_name;
@@ -48,6 +48,24 @@ class VoteController extends Controller
             return redirect()->back()->with('success', 'Registration successful.');
         } else {
             return redirect()->back()->with('fail', 'Registration failed. Please try again.');
+        }
+    }
+
+    public function loginUser(Request $request)
+    {
+        $request->validate([
+            'voter_id' => 'required',
+            'citizenship_number' => 'required',
+        ]);
+
+        $user = votetable::where('voter_id', '=', $request->voter_id)->first();
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                $request->session()->put('loginId', $user->id);
+                echo "Welcome to the AI";
+            } else {
+                return back()->with('fail', 'wrong password');
+            }
         }
     }
 }

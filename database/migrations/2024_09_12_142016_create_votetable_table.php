@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('votingtable', function (Blueprint $table) {
+        Schema::create('votetable', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
             $table->string('phone_number');
             $table->string('citizenship_number');
-            $table->string('voter_id')->nullable();
+            $table->string('voter_id');
             $table->date('dob');
             $table->string('password');
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('votingtable');
+        Schema::dropIfExists('votetable');
     }
 };
