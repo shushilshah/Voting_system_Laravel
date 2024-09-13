@@ -22,12 +22,12 @@ class VoteController extends Controller
     {
         // Validate the form data
         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'middle_name' => 'nullable|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'phone_number' => 'required|numeric',
-            'citizenship_number' => 'required|numeric',
-            'voter_id' => 'nullable|numeric',
+            'first_name' => 'required|string|max:255|exists:user_exist,first_name',
+            'middle_name' => 'nullable|string|max:255|exists:user_exist,middle_name',
+            'last_name' => 'required|string|max:255|exists:user_exist,last_name',
+            'phone_number' => 'required|numeric|exists:user_exist,phone_number',
+            'citizenship_number' => 'required|numeric|exists:user_exist,citizenship_number',
+            'voter_id' => 'nullable|numeric|exists:user_exist,voter_id',
             'dob' => 'required|date',
             'password' => 'required|string|confirmed',
         ]);
