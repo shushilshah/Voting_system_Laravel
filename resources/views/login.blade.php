@@ -30,16 +30,16 @@
         <div class="container">
             <div class="form-group">
                 <label for="">Voter ID</label>
-                <input type="number" name="voterNumber" class="form-control" value="{{ old('voterNumber') }}">
+                <input type="number" name="voter_id" class="form-control" value="{{ old('voter_id') }}">
                 <span class="danger">
-                    @error('voterNumber')
+                    @error('voter_id')
                         {{ $message }}
                     @enderror
                 </span>
             </div>
 
             <div class="form-group">
-                <label for="">Voter ID</label>
+                <label for="">Citizenship Number</label>
                 <input type="number" name="citizenship_number" class="form-control"
                     value="{{ old('citizenship_number') }}">
                 <span class="danger">
@@ -61,6 +61,7 @@
         </div>
 
         <a><button class="btn btn-primary" type="submit">Login</button></a>
+        <p>Not yet registered?</p>
         <button class="btn btn-success"><a href="{{ url('/signup') }}">Sign Up</a></button>
 
     </form>

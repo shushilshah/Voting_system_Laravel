@@ -68,4 +68,9 @@ class VoteController extends Controller
             }
         }
     }
+
+    public function castevote()
+    {
+        return view('castvote');
+    }
 }
