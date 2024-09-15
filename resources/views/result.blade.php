@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h1 class='text-white bg-primary p-3 text-center'>Utilize your vote for the development of Nation</h1>
+
     <div class='container mt-5'>
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
@@ -21,7 +21,7 @@
                     <th>s.n.</th>
                     <th>Name of Candidate</th>
                     <th>Associated Party</th>
-                    <th>Vote</th>
+                    <th>Total Votes</th>
                 </tr>
 
             </thead>
@@ -33,10 +33,8 @@
                     </td>
                     <td>Shushil Shah</td>
                     <td>A</td>
-                    <td>
-                        <button class='btn btn-success' onclick="increaseVote('shushil',this)"
-                            name='vote'>vote</button>
-                    </td>
+
+                    <td id='shushil'></td>
                 </tr>
                 <tr>
                     <td>
@@ -45,9 +43,8 @@
                     </td>
                     <td>Anil Shah</td>
                     <td>B</td>
-                    <td>
-                        <button class='btn btn-success' onclick="increaseVote('anil',this)" name='vote'>vote</button>
-                    </td>
+
+                    <td id='anil'></td>
                 </tr>
                 <tr>
                     <td>
@@ -56,35 +53,24 @@
                     </td>
                     <td>Santosh Shah</td>
                     <td>C</td>
-                    <td>
-                        <button class="btn btn-success" onclick="increaseVote('santosh',this)"
-                            name='vote'>vote</button>
-                    </td>
+
+                    <td id='santosh'></td>
                 </tr>
             </tbody>
 
 
         </table>
-        <a href='{{ url('/result') }}'>
-            <button class='btn btn-primary'>View Total Votes</button>
-        </a>
     </div>
 
+    <!-- JavaScript to display total votes from localStorage -->
     <script>
-        if (!localStorage.getItem('votes')) {
-            localStorage.setItem('votes', JSON.stringfy({
-                shushil: 0,
-                anil: 0,
-                santosh: 0
-            }))
-        }
+        // Retrieve the vote counts from localStorage
+        const votes = JSON.parse(localStorage.getItem('votes'));
 
-        function increaseVote(candidate) {
-            const votes = JSON.parse(localStorage.getItem('votes'));
-            votes[candidate]++;
-            localStorage.setItem('votes', JSON.stringfy(votes));
-            alert('Thank you for voting');
-        }
+        // Display the total votes for each candidate
+        document.getElementById('shushil').textContent = votes.john;
+        document.getElementById('anil').textContent = votes.jane;
+        document.getElementById('santosh').textContent = votes.emily;
     </script>
 
 </body>

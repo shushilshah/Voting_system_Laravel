@@ -73,4 +73,9 @@ class VoteController extends Controller
     {
         return view('castvote');
     }
+
+    public function voteresult()
+    {
+        return view('result');
+    }
 }
