@@ -62,7 +62,7 @@ class VoteController extends Controller
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put('loginId', $user->id);
-                echo "Welcome to the AI";
+                return view('castvote');
             } else {
                 return back()->with('fail', 'wrong password');
             }
