@@ -68,9 +68,9 @@
         const votes = JSON.parse(localStorage.getItem('votes'));
 
         // Display the total votes for each candidate
-        document.getElementById('shushil').textContent = votes.john;
-        document.getElementById('anil').textContent = votes.jane;
-        document.getElementById('santosh').textContent = votes.emily;
+        document.getElementById('shushil').textContent = votes.shushil;
+        document.getElementById('anil').textContent = votes.anil;
+        document.getElementById('santosh').textContent = votes.santosh;
     </script>
 
 </body>
